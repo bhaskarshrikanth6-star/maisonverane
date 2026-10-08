@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Maison Vérane · Hours &amp; Marvels</title>
+<meta name="description" content="An immersive scroll-driven showcase of watchmaking and high jewellery by the fictional house Maison Vérane.">
+<meta name="theme-color" content="#e9dcc6">
+<meta property="og:title" content="Maison Vérane · Hours &amp; Marvels">
+<meta property="og:description" content="Twelve cinematic scenes of watches and jewellery, built with Three.js, GSAP and Lenis.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<canvas id="stage" aria-hidden="true"></canvas>
+
+<header class="hdr">
+  <div class="l"><button class="menu" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu"><i><b></b><b></b></i><span>Chapters</span></button></div>
+  <a class="brand" href="#" aria-label="Maison Vérane">Maison Vérane<small>Paris · Genève</small></a>
+  <div class="r">
+    <span class="wish" id="wish" title="Saved pieces"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.800-8 11-8 11z"/></svg><b id="wn">0</b></span>
+    <button class="snd" id="snd" type="button" aria-pressed="false" aria-label="Toggle ambient sound"><i><b></b><b></b><b></b></i><span>Sound</span></button>
+  </div>
+</header>
+
+<div id="caps"></div>
+<div class="cue" id="cue">Explore</div>
+<nav class="rail" id="rail" aria-label="Scenes"></nav>
+
+<div class="hud" aria-hidden="false">
+  <div class="cnt"><span class="roll"><div id="roll"></div></span><span class="of">/ 12</span><span class="nm" id="hudName"></span></div>
+  <button class="tourmini" id="tourMini" type="button" aria-label="Play guided tour">
+    <svg class="play" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 0l9 5-9 5z"/></svg>
+    <svg class="pause" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 0h3v10H1zM6 0h3v10H6z"/></svg>
+    <span id="tourLbl">Tour</span>
+  </button>
+</div>
+<div class="prog" aria-hidden="true"><i id="progBar"></i></div>
+
+<div id="flash"></div>
+<div id="scroller" aria-hidden="true"></div>
+
+<div class="menu-ov" id="menu" role="dialog" aria-label="Chapters" aria-hidden="true">
+  <ol id="menuList"></ol>
+  <div class="mfoot"><button class="btn" id="tourBtn" type="button">Begin the guided tour</button><span>M · open and close &nbsp; ↑ ↓ · move between scenes</span></div>
+</div>
+
+<div class="veil" id="veil"></div>
+<aside class="panel" id="panel" role="dialog" aria-modal="true" aria-labelledby="pn" aria-hidden="true">
+  <button class="x" id="px" type="button">Close ✕</button>
+  <div class="sw" id="psw"></div>
+  <p class="pk" id="pk"></p>
+  <h3 id="pn"></h3>
+  <p class="pd" id="pdsc"></p>
+  <dl id="pspec"></dl>
+  <div class="acts">
+    <a class="btn" href="#" id="pdisc">Discover</a>
+    <button class="save" id="psave" type="button" aria-pressed="false" aria-label="Save this piece"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.800-8 11-8 11z"/></svg><i style="--dx:-22px;--dy:-18px"></i><i style="--dx:22px;--dy:-20px"></i><i style="--dx:-26px;--dy:6px"></i><i style="--dx:25px;--dy:10px"></i><i style="--dx:0;--dy:-28px"></i><i style="--dx:2px;--dy:26px"></i></button>
+  </div>
+</aside>
+
+<div id="loader" role="status" aria-live="polite">
+  <div class="w">Maison Vérane</div>
+  <div class="bar"><i id="lbar"></i></div>
+  <div class="n" id="lnum">000</div>
+</div>
+<div class="grain" aria-hidden="true"></div>
+<canvas class="trail" id="trail" aria-hidden="true"></canvas>
+<div class="cur" id="cur" aria-hidden="true"><span id="curLbl">View</span></div><div class="cdot" id="cdot" aria-hidden="true"></div>
+<noscript><div class="noscript">This experience needs JavaScript and WebGL.</div></noscript>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/ui.js"></script>
+</body>
+</html>

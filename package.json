@@ -1,0 +1,10 @@
+{
+  "name": "maison-verane",
+  "version": "1.0.0",
+  "description": "Maison Vérane · Hours & Marvels. An immersive scroll-driven showcase built with Three.js, GSAP and Lenis.",
+  "private": true,
+  "scripts": {
+    "dev": "npx --yes serve . -l 3000"
+  },
+  "license": "MIT"
+}
